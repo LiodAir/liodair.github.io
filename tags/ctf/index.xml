@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTF on </title>
-    <link>http://example.org/tags/ctf/</link>
+    <link>https://liodair.github.io/tags/ctf/</link>
     <description>Recent content in CTF on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Jul 2021 13:10:56 +0800</lastBuildDate><atom:link href="http://example.org/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 13:10:56 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF线上赛</title>
-      <link>http://example.org/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</link>
+      <link>https://liodair.github.io/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</link>
       <pubDate>Wed, 21 Jul 2021 13:10:56 +0800</pubDate>
       
-      <guid>http://example.org/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</guid>
+      <guid>https://liodair.github.io/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</guid>
       <description>WEB 抓黑阔 题目给出黑客攻击。通过流量分析抓到关键后门内容。 访问黑客上传的后门发现可以访问。同时正则限制执行命令 php /w 只允许每个字符为数字字母。并且拼接ec后用exec 执行。这里exec 是没有回显的。 通过测</description>
     </item>
     
     <item>
       <title>网鼎杯WEB</title>
-      <link>http://example.org/posts/chinese-preview/</link>
+      <link>https://liodair.github.io/posts/chinese-preview/</link>
       <pubDate>Tue, 19 May 2020 13:06:38 +0800</pubDate>
       
-      <guid>http://example.org/posts/chinese-preview/</guid>
+      <guid>https://liodair.github.io/posts/chinese-preview/</guid>
       <description>签到题 F12 看到传入队伍token即可 import requests data = { &amp;#39;token&amp;#39;: &amp;#39;icq5a2bb9afc45b5da4ac6c280245833&amp;#39; } r = requests.post(url=&amp;#34;http://9850f39c94194dadb76e9c70fc63af41c7ba9188b22d4172.cloudgame2.ichunqiu.com/p14.php&amp;#34;, data=data) print(r.headers) print(r.text) 拿到flag flag{81375846feb9f48f55767e0216c288e3} WEB-js_on 题目 打开网站，发现一个token 直接admin/admin一把嗦 然后注册，登录都尝试了注入，发现一个惊叹的提示！ 然后分析发</description>
     </item>
     
     <item>
       <title>某平台ctf</title>
-      <link>http://example.org/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</link>
+      <link>https://liodair.github.io/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</link>
       <pubDate>Fri, 30 Mar 2018 12:33:22 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</guid>
+      <guid>https://liodair.github.io/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</guid>
       <description>web-1 送分题 题目地址: http://45.124.115.155:8002/bd6b406e7ab5ca24/ 访问得知是一个登录框，我们右键查看源代码得到重要信息 可以得到此登录框用户名是amdin，密码from（month/day）因此猜想密码来自日期，构造字典为所有的日期天数爆破，后来爆</description>
     </item>
     

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SDL on </title>
-    <link>http://example.org/tags/sdl/</link>
+    <link>https://liodair.github.io/tags/sdl/</link>
     <description>Recent content in SDL on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Jun 2021 16:42:28 +0800</lastBuildDate><atom:link href="http://example.org/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 16:42:28 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/sdl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅谈一下我眼中的SSDLC建设（持续更新）</title>
-      <link>http://example.org/posts/sdl%E5%BB%BA%E8%AE%BE/</link>
+      <link>https://liodair.github.io/posts/sdl%E5%BB%BA%E8%AE%BE/</link>
       <pubDate>Sun, 20 Jun 2021 16:42:28 +0800</pubDate>
       
-      <guid>http://example.org/posts/sdl%E5%BB%BA%E8%AE%BE/</guid>
+      <guid>https://liodair.github.io/posts/sdl%E5%BB%BA%E8%AE%BE/</guid>
       <description>一、SSDLC 和 DevSecOps 什么是SDLC sdlc（系统生命周期，系统生存周期）是软件的产生直到报废的生命周期，是软件工程中的一种思想原则，即按部就班、逐步推进，每个阶段都要有定义、工作、审查、形成文档以供交流</description>
     </item>
     

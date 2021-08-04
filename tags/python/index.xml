@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on </title>
-    <link>http://example.org/tags/python/</link>
+    <link>https://liodair.github.io/tags/python/</link>
     <description>Recent content in Python on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 30 Apr 2018 17:39:46 +0800</lastBuildDate><atom:link href="http://example.org/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Apr 2018 17:39:46 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>有趣的python混淆库</title>
-      <link>http://example.org/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</link>
+      <link>https://liodair.github.io/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</link>
       <pubDate>Mon, 30 Apr 2018 17:39:46 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</guid>
+      <guid>https://liodair.github.io/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</guid>
       <description>一个有趣的python混淆库 pyarmor · PyPI 前几天由于红队要准备一些东西，找不到免杀的远控，一时也没有思路，想到以前有人用shellcode&amp;lt;python&amp;gt; 打包为exe，可以免杀的效果，但是常规sh</description>
     </item>
     

@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>http://example.org/tags/</link>
+    <link>https://liodair.github.io/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 21 Jul 2021 13:10:56 +0800</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 13:10:56 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTF</title>
-      <link>http://example.org/tags/ctf/</link>
+      <link>https://liodair.github.io/tags/ctf/</link>
       <pubDate>Wed, 21 Jul 2021 13:10:56 +0800</pubDate>
       
-      <guid>http://example.org/tags/ctf/</guid>
+      <guid>https://liodair.github.io/tags/ctf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WEB</title>
-      <link>http://example.org/tags/web/</link>
+      <link>https://liodair.github.io/tags/web/</link>
       <pubDate>Wed, 21 Jul 2021 13:10:56 +0800</pubDate>
       
-      <guid>http://example.org/tags/web/</guid>
+      <guid>https://liodair.github.io/tags/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SDL</title>
-      <link>http://example.org/tags/sdl/</link>
+      <link>https://liodair.github.io/tags/sdl/</link>
       <pubDate>Sun, 20 Jun 2021 16:42:28 +0800</pubDate>
       
-      <guid>http://example.org/tags/sdl/</guid>
+      <guid>https://liodair.github.io/tags/sdl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>杂谈</title>
-      <link>http://example.org/tags/%E6%9D%82%E8%B0%88/</link>
+      <link>https://liodair.github.io/tags/%E6%9D%82%E8%B0%88/</link>
       <pubDate>Sun, 20 Jun 2021 16:42:28 +0800</pubDate>
       
-      <guid>http://example.org/tags/%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://liodair.github.io/tags/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DAST</title>
-      <link>http://example.org/tags/dast/</link>
+      <link>https://liodair.github.io/tags/dast/</link>
       <pubDate>Sat, 07 Mar 2020 13:10:56 +0800</pubDate>
       
-      <guid>http://example.org/tags/dast/</guid>
+      <guid>https://liodair.github.io/tags/dast/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>http://example.org/tags/python/</link>
+      <link>https://liodair.github.io/tags/python/</link>
       <pubDate>Mon, 30 Apr 2018 17:39:46 +0800</pubDate>
       
-      <guid>http://example.org/tags/python/</guid>
+      <guid>https://liodair.github.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>免杀</title>
-      <link>http://example.org/tags/%E5%85%8D%E6%9D%80/</link>
+      <link>https://liodair.github.io/tags/%E5%85%8D%E6%9D%80/</link>
       <pubDate>Mon, 30 Apr 2018 17:39:46 +0800</pubDate>
       
-      <guid>http://example.org/tags/%E5%85%8D%E6%9D%80/</guid>
+      <guid>https://liodair.github.io/tags/%E5%85%8D%E6%9D%80/</guid>
       <description></description>
     </item>
     

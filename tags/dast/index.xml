@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DAST on </title>
-    <link>http://example.org/tags/dast/</link>
+    <link>https://liodair.github.io/tags/dast/</link>
     <description>Recent content in DAST on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Mar 2020 13:10:56 +0800</lastBuildDate><atom:link href="http://example.org/tags/dast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Mar 2020 13:10:56 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/dast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从0开始的扫描器（持续更新）</title>
-      <link>http://example.org/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</link>
+      <link>https://liodair.github.io/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</link>
       <pubDate>Sat, 07 Mar 2020 13:10:56 +0800</pubDate>
       
-      <guid>http://example.org/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</guid>
+      <guid>https://liodair.github.io/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</guid>
       <description>前言 最近在思考自己做一次web扫描器。想法就是指纹识别、怼POC。然后分布式像bugscan当年节点扫描。扩充节点执行任务。 草图如下 客户端部分 指纹识别</description>
     </item>
     
