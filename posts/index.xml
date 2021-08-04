@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 21 Jul 2021 13:10:56 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CTF线上赛</title>
+      <link>http://example.org/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</link>
+      <pubDate>Wed, 21 Jul 2021 13:10:56 +0800</pubDate>
+      
+      <guid>http://example.org/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/</guid>
+      <description>WEB 抓黑阔 题目给出黑客攻击。通过流量分析抓到关键后门内容。 访问黑客上传的后门发现可以访问。同时正则限制执行命令 php /w 只允许每个字符为数字字母。并且拼接ec后用exec 执行。这里exec 是没有回显的。 通过测</description>
+    </item>
+    
+    <item>
+      <title>浅谈一下我眼中的SSDLC建设（持续更新）</title>
+      <link>http://example.org/posts/sdl%E5%BB%BA%E8%AE%BE/</link>
+      <pubDate>Sun, 20 Jun 2021 16:42:28 +0800</pubDate>
+      
+      <guid>http://example.org/posts/sdl%E5%BB%BA%E8%AE%BE/</guid>
+      <description>一、SSDLC 和 DevSecOps 什么是SDLC sdlc（系统生命周期，系统生存周期）是软件的产生直到报废的生命周期，是软件工程中的一种思想原则，即按部就班、逐步推进，每个阶段都要有定义、工作、审查、形成文档以供交流</description>
+    </item>
+    
+    <item>
+      <title>二维码劫持案例</title>
+      <link>http://example.org/posts/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%8A%AB%E6%8C%81%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Sun, 30 May 2021 13:10:56 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%8A%AB%E6%8C%81%E6%A1%88%E4%BE%8B/</guid>
+      <description>CSDN二维码劫持漏洞 漏洞原因 通过CSDN网站二维码登录，网站二维码处生成以及请求未对请求来源校验或签名导致生成二维码让他人劫持利用 漏洞证明 创建二维码接口 https://passport.csdn.net/v1/register/pc/officialAccount/createQrCode 验证二维码扫描信息 https://passport.csdn.net/v1/register/pc/officialAccount/checkLogin import requests class Spider(object): request = requests.Session() headers = { } def</description>
+    </item>
+    
+    <item>
+      <title>网鼎杯WEB</title>
+      <link>http://example.org/posts/chinese-preview/</link>
+      <pubDate>Tue, 19 May 2020 13:06:38 +0800</pubDate>
+      
+      <guid>http://example.org/posts/chinese-preview/</guid>
+      <description>签到题 F12 看到传入队伍token即可 import requests data = { &amp;#39;token&amp;#39;: &amp;#39;icq5a2bb9afc45b5da4ac6c280245833&amp;#39; } r = requests.post(url=&amp;#34;http://9850f39c94194dadb76e9c70fc63af41c7ba9188b22d4172.cloudgame2.ichunqiu.com/p14.php&amp;#34;, data=data) print(r.headers) print(r.text) 拿到flag flag{81375846feb9f48f55767e0216c288e3} WEB-js_on 题目 打开网站，发现一个token 直接admin/admin一把嗦 然后注册，登录都尝试了注入，发现一个惊叹的提示！ 然后分析发</description>
+    </item>
+    
+    <item>
+      <title>从0开始的扫描器（持续更新）</title>
+      <link>http://example.org/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</link>
+      <pubDate>Sat, 07 Mar 2020 13:10:56 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</guid>
+      <description>前言 最近在思考自己做一次web扫描器。想法就是指纹识别、怼POC。然后分布式像bugscan当年节点扫描。扩充节点执行任务。 草图如下 客户端部分 指纹识别</description>
+    </item>
+    
+    <item>
+      <title>有趣的python混淆库</title>
+      <link>http://example.org/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</link>
+      <pubDate>Mon, 30 Apr 2018 17:39:46 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/</guid>
+      <description>一个有趣的python混淆库 pyarmor · PyPI 前几天由于红队要准备一些东西，找不到免杀的远控，一时也没有思路，想到以前有人用shellcode&amp;lt;python&amp;gt; 打包为exe，可以免杀的效果，但是常规sh</description>
+    </item>
+    
+    <item>
+      <title>某平台ctf</title>
+      <link>http://example.org/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</link>
+      <pubDate>Fri, 30 Mar 2018 12:33:22 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E6%9F%90%E5%B9%B3%E5%8F%B0ctf/</guid>
+      <description>web-1 送分题 题目地址: http://45.124.115.155:8002/bd6b406e7ab5ca24/ 访问得知是一个登录框，我们右键查看源代码得到重要信息 可以得到此登录框用户名是amdin，密码from（month/day）因此猜想密码来自日期，构造字典为所有的日期天数爆破，后来爆</description>
+    </item>
+    
+    <item>
+      <title>记一次任意文件下载</title>
+      <link>http://example.org/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Sat, 20 Jan 2018 12:42:28 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/</guid>
+      <description>记一次任意文件下载 0x00 前言 任意文件下载,一般多是在一些web应用提供文件下载的功能,工程师考虑遵循&amp;quot;单一原则&amp;quot;,开发一个将请求中的 file或filePath作为参数，来下载指定的文件</description>
+    </item>
+    
+    <item>
+      <title>免杀shell尝试</title>
+      <link>http://example.org/posts/%E5%85%8D%E6%9D%80shell%E5%B0%9D%E8%AF%95u/</link>
+      <pubDate>Sun, 15 Oct 2017 13:04:31 +0800</pubDate>
+      
+      <guid>http://example.org/posts/%E5%85%8D%E6%9D%80shell%E5%B0%9D%E8%AF%95u/</guid>
+      <description>0x00 shell编写思路 目前我们一句话shell的编写归根揭底就为命令执行, 只要最后代码命令执行我们外部参数就可称为webshell了，而菜刀的出现也是方便我们使用，我们这时候就用简短的一句话实现我们下一</description>
+    </item>
+    
+  </channel>
+</rss>

