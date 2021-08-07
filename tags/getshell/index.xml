@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GetShell on </title>
+    <link>https://liodair.github.io/tags/getshell/</link>
+    <description>Recent content in GetShell on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 21 Jul 2019 12:33:22 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/getshell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SeaCMS&gt;9.9前台GetSHELL</title>
+      <link>https://liodair.github.io/posts/seacms%E5%89%8D%E5%8F%B0getshell/</link>
+      <pubDate>Sun, 21 Jul 2019 12:33:22 +0800</pubDate>
+      
+      <guid>https://liodair.github.io/posts/seacms%E5%89%8D%E5%8F%B0getshell/</guid>
+      <description>版本信息 版本信息 ：海洋CMS v9.92 漏洞分析 SeaCMS后续版本开始各种过滤字符，但是同样此cms会对sql报错语句记录并写入到php文件，因此造成了该漏洞 定位⽂件：comment\api\index.ph</description>
+    </item>
+    
+  </channel>
+</rss>

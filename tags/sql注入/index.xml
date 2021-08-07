@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQL注入 on </title>
+    <link>https://liodair.github.io/tags/sql%E6%B3%A8%E5%85%A5/</link>
+    <description>Recent content in SQL注入 on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 09 May 2018 12:33:22 +0800</lastBuildDate><atom:link href="https://liodair.github.io/tags/sql%E6%B3%A8%E5%85%A5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>某狗sql注入bypass</title>
+      <link>https://liodair.github.io/posts/%E5%AE%89%E5%85%A8%E7%8B%97sql%E6%B3%A8%E5%85%A5bypass/</link>
+      <pubDate>Wed, 09 May 2018 12:33:22 +0800</pubDate>
+      
+      <guid>https://liodair.github.io/posts/%E5%AE%89%E5%85%A8%E7%8B%97sql%E6%B3%A8%E5%85%A5bypass/</guid>
+      <description>环境 safedog4.0.2.3957 + PHP5.5 + APACHE2 源码使用得是sqlid-lesson1 科普 其实几个月前我的贴子，我从判断安全狗拦截位置，然后fuzz出关键字之间/!50000xxx/就ok得注释 在mysql数据库中填充为空白得字符 list =</description>
+    </item>
+    
+  </channel>
+</rss>

