@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">lioders &#39;s blog</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-12-22T21:25:41&#43;08:00</updated>
+    <updated>2021-12-22T21:41:17&#43;08:00</updated>
     <id>https://liodair.github.io/</id>
     <link rel="alternate" type="text/html" href="https://liodair.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://liodair.github.io/atom.xml" />
@@ -16,6 +16,132 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator>
+        <entry>
+            <title type="text">CTF题目-空投的秘密(一)</title>
+            <link rel="alternate" type="text/html" href="https://liodair.github.io/posts/ctf%E9%A2%98%E7%9B%AE-%E7%A9%BA%E6%8A%95%E7%9A%84%E7%A7%98%E5%AF%86%E4%B8%80/" />
+            <id>https://liodair.github.io/posts/ctf%E9%A2%98%E7%9B%AE-%E7%A9%BA%E6%8A%95%E7%9A%84%E7%A7%98%E5%AF%86%E4%B8%80/</id>
+            <updated>2021-12-22T21:36:55&#43;08:00</updated>
+            <published>2021-10-22T16:42:28&#43;08:00</published>
+            <author>
+                    <name>Lioders</name>
+                    <uri>https://liodair.github.io/</uri>
+                    <email>liodersmall@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">前言 最近出了一道智能合约题目，学习了以太坊web3开发，调用合约敏感approve达……</summary>
+            
+                <content type="html">&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近出了一道智能合约题目，学习了以太坊web3开发，调用合约敏感approve达到偷币的目的。以下是该次合约信息。&lt;/p&gt;
+&lt;h2 id=&#34;oops-合约信息&#34;&gt;Oops 合约信息&lt;/h2&gt;
+&lt;h3 id=&#34;相关信息&#34;&gt;相关信息&lt;/h3&gt;
+&lt;p&gt;合约地址: &lt;a href=&#34;https://ropsten.etherscan.io/token/0x08f702612b798a3ec23d2f7061ab450000e3e551&#34;&gt;https://ropsten.etherscan.io/token/0x08f702612b798a3ec23d2f7061ab450000e3e551&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ropsten 发币水龙头🚰 领取eth 手续费用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://faucet.ropsten.be/&#34;&gt;https://faucet.ropsten.be&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://faucet.metamask.io/&#34;&gt;https://faucet.metamask.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://faucet.dimensions.network/&#34;&gt;https://faucet.dimensions.network/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://faucet.kyber.network/&#34;&gt;https://faucet.kyber.network/&lt;/a&gt;（仅限GitHub用户）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://faucet.bitfwd.xyz/&#34;&gt;http://faucet.bitfwd.xyz/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每一个注册用户会分配一个以太坊测试环境（ropsten）钱包地址。需要在这个地址上转入合约代币Oops Coin 即可获得&lt;code&gt;flag&lt;/code&gt;（需要获取50%代币）&lt;/p&gt;
+&lt;h2 id=&#34;知识点&#34;&gt;知识点&lt;/h2&gt;
+&lt;p&gt;在用户和Dapp进行交互的时候，首先需要授权（approve），这样Dapp才能对用户的账户余额进行转移等操作。某些Dapp开发者为了避免用户反复授权，一般会默认设置授权最大数量的代币给智能合约，但是这样的处理也有暴露风险，如果智能合约出现漏洞或者管理员跑路，那么用户的代币就会有丢失风险，这就是&lt;strong&gt;Dapp过度授权&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;火币钱包如下图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1258536138.cos.ap-shanghai.myqcloud.com/uPic/P057a0.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;approve方法&#34;&gt;approve方法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;n&#34;&gt;approve&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_spender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_amount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;success&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;_spender: 要授权的对象地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;_amount: 要授权的数量&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法调用成功后，会将调用者的固定&lt;code&gt;_amount&lt;/code&gt;数量的币授权给&lt;code&gt;_spender&lt;/code&gt;操作。换言之，&lt;em&gt;spender可以操作(比如转走)调用者&lt;/em&gt;amount个数量的币。&lt;/p&gt;
+&lt;h3 id=&#34;allowance方法&#34;&gt;allowance方法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;n&#34;&gt;allowance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_spender_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;_owner_address: 授权者，这个授权者是授权代币操作权限给被授权者的地址&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;_spender_address: 被授权者&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;transferfrom方法&#34;&gt;transferFrom方法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;n&#34;&gt;transferFrom&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint256&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;from, 从这个地址进行转账&lt;/li&gt;
+&lt;li&gt;to, 币转到这个地址&lt;/li&gt;
+&lt;li&gt;value, 数量（如果是代币，会有单位换算）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;空投的秘密&#34;&gt;空投的秘密&lt;/h2&gt;
+&lt;p&gt;小明发现牛市来了，为了炒币发现一个发币团队的Dapp网站。后来发现这是发币团队留下的一个后门用于持续发空投。&lt;/p&gt;
+&lt;h2 id=&#34;参考信息&#34;&gt;参考信息&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://paper.seebug.org/1646/&#34;&gt;https://paper.seebug.org/1646/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://weibo.com/ttarticle/p/show?id=2309404637759124930833&#34;&gt;https://weibo.com/ttarticle/p/show?id=2309404637759124930833&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/PeckShield/article/details/114253956&#34;&gt;https://blog.csdn.net/PeckShield/article/details/114253956&lt;/a&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://liodair.github.io/tags/ctf/" term="CTF" label="CTF" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://liodair.github.io/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" term="智能合约" label="智能合约" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://liodair.github.io/tags/approve/" term="approve" label="approve" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://liodair.github.io/tags/eth/" term="ETH" label="ETH" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">CTF线上赛</title>
             <link rel="alternate" type="text/html" href="https://liodair.github.io/posts/7%E6%9C%88%E7%9A%84%E4%B8%80%E6%AC%A1ctf/" />
