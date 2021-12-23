@@ -17,11 +17,11 @@
 
     <title>从0开始的扫描器（持续更新） | lioders &#39;s blog</title>
 
-    <link rel="stylesheet" href="/css/meme.min.29e2be9c5a910eee26d7a104e1fa49418d6f3d073ee4ca520751d59aefab8a94.css"/>
+    <link rel="stylesheet" href="/css/meme.min.bdee3834aef8aff5c1647e1a835267e0948f892092d585b04c8053fdc750d98b.css"/>
 
     
     
-        <script src="/js/meme.min.8cbe976441b5181abfd3093c9beee209b19cdbb1fa77c48d225a83ba81fa3fb1.js"></script>
+        <script src="/js/meme.min.4194bf2034241e3757fbbbf5fe4db43d0ff17c81f4496e6bc931504f0978cbd2.js"></script>
 
     
 
@@ -472,6 +472,25 @@
 
 
         
+    
+
+        
+            <div class="load-comments">
+                <div id="load-comments">加载评论</div>
+            </div>
+        
+
+        
+
+        
+            <div id="vcomments"></div>
+        
+
+        
+
+        
+    
+
 
 
     </div>
@@ -516,6 +535,65 @@
 
 
 
+
+    
+
+        
+
+        
+            <script>
+    function loadComments() {
+        if (typeof Valine === 'undefined') {
+            var getScript = (options) => {
+                var script = document.createElement('script');
+                script.defer = true;
+                script.crossOrigin = 'anonymous';
+                Object.keys(options).forEach((key) => {
+                    script[key] = options[key];
+                });
+                document.body.appendChild(script);
+            };
+            getScript({
+                src: 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js',
+                onload: () => {
+                    newValine();
+                }
+            });
+        } else {
+            newValine();
+        }
+    }
+    function newValine() {
+        new Valine({
+            el: '#vcomments',
+            appId: 'ht7ApmQqEx3yMm6NeGNmH8p3-9Nh9j0Va',
+            appKey: 'k4wIVSvcolfQ1AnYwGWuJjqN',
+            placeholder: 'Just go go',
+            path: location.pathname,
+            avatar: 'mm',
+            meta: ["nick","mail","link"],
+            pageSize:  10 ,
+            lang: 'zh-cn',
+            visitor:  false ,
+            highlight:  true ,
+            avatarForce:  false ,
+            recordIP:  false ,
+            serverURLs: 'https:\/\/ht7apmqq.lc-cn-e1-shared.com',
+            emojiCDN: '',
+            emojiMaps: {},
+            enableQQ:  false ,
+            requiredFields: []
+        });
+    }
+</script>
+
+        
+
+        
+
+        
+
+    
 
 
 
