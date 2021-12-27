@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Mon, 27 Dec 2021 14:23:00 &#43;0800</lastBuildDate>
+        <lastBuildDate>Mon, 27 Dec 2021 14:46:08 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://liodair.github.io/rss.xml" />
         
@@ -1632,7 +1632,7 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;h1 id=&#34;csdn二维码劫持漏洞&#34;&gt;CSDN二维码劫持漏洞&lt;/h1&gt;
+                    <description>&lt;h1 id=&#34;二维码劫持漏洞&#34;&gt;二维码劫持漏洞&lt;/h1&gt;
 &lt;h2 id=&#34;漏洞原因&#34;&gt;漏洞原因&lt;/h2&gt;
 &lt;p&gt;某网站二维码登录，网站二维码处生成以及请求未对请求来源校验或签名导致生成二维码让他人劫持利用&lt;/p&gt;
 &lt;h2 id=&#34;漏洞证明&#34;&gt;漏洞证明&lt;/h2&gt;
@@ -1947,8 +1947,8 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
 &lt;p&gt;草图如下&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/26197815/62504068-79e91880-b829-11e9-87db-772317dede13.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;客户端部分&#34;&gt;客户端部分&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://liodair.github.io/Users/lioders/Library/Containers/com.tencent.xinWeChat/Data/Library/Application%20Support/com.tencent.xinWeChat/2.0b4.0.9/3ec625c5e9830f3954ea40e219ede749/Message/MessageTemp/9e20f478899dc29eb19741386f9343c8/File/Pictures/%E6%89%AB%E6%8F%8F%E5%99%A8/23.png&#34; alt=&#34;23&#34;&gt;指纹识别&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://liodair.github.io/Users/lioders/Library/Containers/com.tencent.xinWeChat/Data/Library/Application%20Support/com.tencent.xinWeChat/2.0b4.0.9/3ec625c5e9830f3954ea40e219ede749/Message/MessageTemp/9e20f478899dc29eb19741386f9343c8/File/Pictures/%E6%89%AB%E6%8F%8F%E5%99%A8/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210804215632.jpg&#34; alt=&#34;微信图片_20210804215632&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1258536138.cos.ap-shanghai.myqcloud.com/uPic/tfj6Bz.png&#34; alt=&#34;23&#34;&gt;指纹识别&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1258536138.cos.ap-shanghai.myqcloud.com/uPic/6UoUAq.jpg&#34; alt=&#34;微信图片_20210804215632&#34;&gt;&lt;/p&gt;
 </description>
                 
                 

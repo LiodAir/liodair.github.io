@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">lioders &#39;s blog</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-12-27T14:23:00&#43;08:00</updated>
+    <updated>2021-12-27T14:46:08&#43;08:00</updated>
     <id>https://liodair.github.io/</id>
     <link rel="alternate" type="text/html" href="https://liodair.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://liodair.github.io/atom.xml" />
@@ -1623,16 +1623,16 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
             <title type="text">二维码劫持案例</title>
             <link rel="alternate" type="text/html" href="https://liodair.github.io/posts/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%8A%AB%E6%8C%81%E6%A1%88%E4%BE%8B/" />
             <id>https://liodair.github.io/posts/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%8A%AB%E6%8C%81%E6%A1%88%E4%BE%8B/</id>
-            <updated>2021-12-27T11:09:27&#43;08:00</updated>
+            <updated>2021-12-27T14:44:51&#43;08:00</updated>
             <published>2021-05-30T13:10:56&#43;08:00</published>
             <author>
                     <name>Lioders</name>
                     <uri>https://liodair.github.io/</uri>
                     <email>liodersmall@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CSDN二维码劫持漏洞 漏洞原因 某网站二维码登录，网站二维码处生成以及请求未对请求来源……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">二维码劫持漏洞 漏洞原因 某网站二维码登录，网站二维码处生成以及请求未对请求来源校验或签……</summary>
             
-                <content type="html">&lt;h1 id=&#34;csdn二维码劫持漏洞&#34;&gt;CSDN二维码劫持漏洞&lt;/h1&gt;
+                <content type="html">&lt;h1 id=&#34;二维码劫持漏洞&#34;&gt;二维码劫持漏洞&lt;/h1&gt;
 &lt;h2 id=&#34;漏洞原因&#34;&gt;漏洞原因&lt;/h2&gt;
 &lt;p&gt;某网站二维码登录，网站二维码处生成以及请求未对请求来源校验或签名导致生成二维码让他人劫持利用&lt;/p&gt;
 &lt;h2 id=&#34;漏洞证明&#34;&gt;漏洞证明&lt;/h2&gt;
@@ -1939,7 +1939,7 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
             <title type="text">从0开始的扫描器（持续更新）</title>
             <link rel="alternate" type="text/html" href="https://liodair.github.io/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/" />
             <id>https://liodair.github.io/posts/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E6%89%AB%E6%8F%8F%E5%99%A8/</id>
-            <updated>2021-12-27T11:08:16&#43;08:00</updated>
+            <updated>2021-12-27T14:44:39&#43;08:00</updated>
             <published>2020-03-07T13:10:56&#43;08:00</published>
             <author>
                     <name>Lioders</name>
@@ -1953,8 +1953,8 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
 &lt;p&gt;草图如下&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/26197815/62504068-79e91880-b829-11e9-87db-772317dede13.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;客户端部分&#34;&gt;客户端部分&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://liodair.github.io/Users/lioders/Library/Containers/com.tencent.xinWeChat/Data/Library/Application%20Support/com.tencent.xinWeChat/2.0b4.0.9/3ec625c5e9830f3954ea40e219ede749/Message/MessageTemp/9e20f478899dc29eb19741386f9343c8/File/Pictures/%E6%89%AB%E6%8F%8F%E5%99%A8/23.png&#34; alt=&#34;23&#34;&gt;指纹识别&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://liodair.github.io/Users/lioders/Library/Containers/com.tencent.xinWeChat/Data/Library/Application%20Support/com.tencent.xinWeChat/2.0b4.0.9/3ec625c5e9830f3954ea40e219ede749/Message/MessageTemp/9e20f478899dc29eb19741386f9343c8/File/Pictures/%E6%89%AB%E6%8F%8F%E5%99%A8/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210804215632.jpg&#34; alt=&#34;微信图片_20210804215632&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1258536138.cos.ap-shanghai.myqcloud.com/uPic/tfj6Bz.png&#34; alt=&#34;23&#34;&gt;指纹识别&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://image-1258536138.cos.ap-shanghai.myqcloud.com/uPic/6UoUAq.jpg&#34; alt=&#34;微信图片_20210804215632&#34;&gt;&lt;/p&gt;
 </content>
             
             
