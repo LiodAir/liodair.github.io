@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Thu, 23 Dec 2021 12:37:22 &#43;0800</lastBuildDate>
+        <lastBuildDate>Mon, 27 Dec 2021 14:23:00 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://liodair.github.io/rss.xml" />
         
@@ -1300,6 +1300,32 @@
                 
                     
                         
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/ctf/">CTF</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/approve/">approve</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/eth/">ETH</category>
+                                
+                            
+                        
                     
                         
                             
@@ -1466,6 +1492,20 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                     
                         
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/ctf/">CTF</category>
+                                
+                            
+                        
                     
                         
                             
@@ -1547,6 +1587,20 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/sdl/">SDL</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈</category>
+                                
+                            
                         
                     
                         
@@ -1672,6 +1726,14 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
                         
                     
                         
@@ -1848,6 +1910,14 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                     
                         
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/ctf/">CTF</category>
+                                
+                            
+                        
                     
                         
                             
@@ -1886,6 +1956,20 @@ flag{a5be0518e560404d8772447b911cee56}&lt;/p&gt;
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/dast/">DAST</category>
+                                
+                            
                         
                     
                         
@@ -2367,6 +2451,20 @@ bool SELECT * FROM users WHERE &lt;span class=&#34;nv&#34;&gt;id&lt;/span&gt;&lt
                 
                     
                         
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/sql%E6%B3%A8%E5%85%A5/">SQL注入</category>
+                                
+                            
+                        
                     
                         
                             
@@ -2621,6 +2719,20 @@ pyinstaller 打包成一个文件的原理也不是直接所有打包，他运�
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/python/">Python</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/%E5%85%8D%E6%9D%80/">免杀</category>
+                                
+                            
                         
                     
                         
@@ -2911,6 +3023,14 @@ flag为 flag{Redirection302}&lt;/p&gt;
                 
                     
                         
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/ctf/">CTF</category>
+                                
+                            
+                        
                     
                         
                             
@@ -3027,6 +3147,14 @@ flag为 flag{Redirection302}&lt;/p&gt;
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
                         
                     
                         
@@ -3228,6 +3356,14 @@ shell如下:&lt;/p&gt;
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://liodair.github.io/categories/web/">WEB</category>
+                                
+                            
                         
                     
                         
