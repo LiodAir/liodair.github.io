@@ -3,8 +3,8 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">lioders &#39;s blog</title>
-    <subtitle type="html">梦想被扼杀的第一个征候，是抱怨没有时间</subtitle>
-    <updated>2021-12-28T14:29:51&#43;08:00</updated>
+    <subtitle type="html">lioders&#39;s blog 梦想被扼杀的第一个征候，是抱怨没有时间</subtitle>
+    <updated>2021-12-28T14:42:14&#43;08:00</updated>
     <id>https://lioders.com/</id>
     <link rel="alternate" type="text/html" href="https://lioders.com/" />
     <link rel="self" type="application/atom&#43;xml" href="https://lioders.com/atom.xml" />

@@ -9,7 +9,7 @@
     <channel>
         <title>lioders &#39;s blog</title>
         <link>https://lioders.com/</link>
-        <description>梦想被扼杀的第一个征候，是抱怨没有时间</description>
+        <description>lioders&#39;s blog 梦想被扼杀的第一个征候，是抱怨没有时间</description>
         <generator>Hugo 0.87.0 https://gohugo.io/</generator>
         
             <language>zh-CN</language>
@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Tue, 28 Dec 2021 14:29:51 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 28 Dec 2021 14:42:14 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://lioders.com/rss.xml" />
         
