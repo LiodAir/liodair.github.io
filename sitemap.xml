@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lioders.com/</loc>
-    <lastmod>2021-12-27T17:47:46+08:00</lastmod>
+    <lastmod>2021-12-28T21:54:11+08:00</lastmod>
   </url><url>
     <loc>https://lioders.com/blogroll/</loc>
     <lastmod>2021-12-27T14:18:05+08:00</lastmod>
@@ -33,7 +33,7 @@
     <lastmod>2021-12-27T11:07:28+08:00</lastmod>
   </url><url>
     <loc>https://lioders.com/posts/</loc>
-    <lastmod>2021-12-27T17:47:46+08:00</lastmod>
+    <lastmod>2021-12-28T21:54:11+08:00</lastmod>
   </url><url>
     <loc>https://lioders.com/tags/</loc>
     <lastmod>2021-12-27T17:47:46+08:00</lastmod>
@@ -121,6 +121,9 @@
   </url><url>
     <loc>https://lioders.com/about/readme/</loc>
     <lastmod>2021-12-22T20:30:27+08:00</lastmod>
+  </url><url>
+    <loc>https://lioders.com/posts/electron%E5%85%B3%E9%97%AD%E9%BB%98%E8%AE%A4%E8%B0%83%E8%AF%95cli/</loc>
+    <lastmod>2021-12-28T21:54:11+08:00</lastmod>
   </url><url>
     <loc>https://lioders.com/about/</loc>
     <lastmod>2021-12-22T20:30:27+08:00</lastmod>
